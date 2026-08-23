@@ -1,5 +1,5 @@
 {
-  "name": "reforge-site-template",
+  "name": "cloneable",
   "version": "0.1.0",
   "private": true,
   "description": "Clone any website into a customizable, content-driven Next.js template",

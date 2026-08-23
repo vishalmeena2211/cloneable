@@ -1,10 +1,10 @@
 {
   "seo": {
-    "title": "Reforge — clone any website into a customizable template",
+    "title": "Cloneable — clone any website into a customizable template",
     "description": "Point an AI coding agent at a URL. Get back a Next.js codebase where every string, image, link, and colour is editable from a schema-driven UI."
   },
   "nav": {
-    "brand": "Reforge",
+    "brand": "Cloneable",
     "links": [
       { "label": "How it works", "href": "#how" },
       { "label": "Features", "href": "#features" },
@@ -15,12 +15,12 @@
   "hero": {
     "eyebrow": "Clone → Templatize → Customize",
     "title": "Every cloned site, editable by anyone",
-    "subtitle": "A pixel-perfect clone is a dead end if the copy is hard-coded in JSX. Reforge adds a content layer: your agent lifts every string, image, and link into typed JSON, then hands you a visual editor to rewrite it.",
+    "subtitle": "A pixel-perfect clone is a dead end if the copy is hard-coded in JSX. Cloneable adds a content layer: your agent lifts every string, image, and link into typed JSON, then hands you a visual editor to rewrite it.",
     "primaryAction": { "label": "Get started", "href": "#get-started" },
     "secondaryAction": { "label": "Open the editor", "href": "/edit" },
     "image": {
       "src": "/images/hero-preview.png",
-      "alt": "The Reforge editor showing a content form beside a live page preview",
+      "alt": "The Cloneable editor showing a content form beside a live page preview",
       "width": 1200,
       "height": 750
     }
@@ -89,7 +89,7 @@
       {
         "quote": "Extract the structure, template the content, keep the pixels. Then the same clone serves ten different brands.",
         "name": "The approach",
-        "role": "How Reforge answers it"
+        "role": "How Cloneable answers it"
       }
     ]
   },

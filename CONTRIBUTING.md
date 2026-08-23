@@ -11,15 +11,15 @@ Thanks for your interest in improving the **AI Website Cloner Template**! This g
 - **Fix bugs** in the Next.js scaffold or the sync scripts
 - **Improve documentation** — the README, `AGENTS.md`, or the inspection guides under `docs/research/`
 
-Browse the [open issues](https://github.com/YOUR-USERNAME/reforge/issues) for something to pick up. For substantial or potentially breaking changes, consider opening an issue first so we can align on the approach before significant work begins.
+Browse the [open issues](https://github.com/YOUR-USERNAME/cloneable/issues) for something to pick up. For substantial or potentially breaking changes, consider opening an issue first so we can align on the approach before significant work begins.
 
 ## Development setup
 
 **Prerequisites:** [Node.js](https://nodejs.org/) 24+.
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/reforge.git
-cd reforge
+git clone https://github.com/YOUR-USERNAME/cloneable.git
+cd cloneable
 npm ci
 ```
 

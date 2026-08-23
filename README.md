@@ -1,6 +1,6 @@
 <div align="center">
 
-# Reforge
+# Cloneable
 
 ### Clone any website — then make every word of it editable
 
@@ -27,7 +27,7 @@ A finished clone has its copy hard-coded in JSX:
 Every text change is now a code change. You cannot hand that to a client, you cannot reuse the
 layout for a second brand, and you cannot let anyone who is not a developer touch it.
 
-Reforge adds the missing step. After the clone passes visual QA, `/templatize` lifts every
+Cloneable adds the missing step. After the clone passes visual QA, `/templatize` lifts every
 string, image, link, and repeated block into a zod schema plus a JSON file, and rewires the
 components to read from it. The page renders identically — but now it is a template.
 
@@ -187,5 +187,5 @@ a copy.
 
 The cloning pipeline and multi-platform skill sync come from
 [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template)
-(MIT). Reforge adds the content layer, the editor, the placeholder generator, and the
+(MIT). Cloneable adds the content layer, the editor, the placeholder generator, and the
 `/templatize` and `/customize-site` skills.

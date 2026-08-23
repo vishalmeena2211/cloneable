@@ -4,7 +4,7 @@ import Link from "next/link";
 import { EDITOR_ENABLED } from "@/lib/content/guard";
 
 export const metadata: Metadata = {
-  title: "Reforge editor",
+  title: "Cloneable editor",
   robots: { index: false, follow: false },
 };
 
@@ -26,7 +26,7 @@ export default function EditLayout({ children }: { children: React.ReactNode }) 
     <div className="flex min-h-screen flex-col">
       <header className="flex h-16 shrink-0 items-center gap-6 border-b border-border px-6">
         <Link href="/edit" className="text-sm font-semibold tracking-tight">
-          Reforge editor
+          Cloneable editor
         </Link>
         <nav className="flex items-center gap-4 text-sm text-muted-foreground">
           <Link href="/edit" className="transition-colors hover:text-foreground">

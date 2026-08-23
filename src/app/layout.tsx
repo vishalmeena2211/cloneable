@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Reforge",
+  title: "Cloneable",
   description: "Clone any website into a customizable template",
 };
 

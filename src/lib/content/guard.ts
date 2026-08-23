@@ -10,7 +10,7 @@ export function editorDisabledResponse(): Response {
   return Response.json(
     {
       error:
-        "The Reforge editor is available in development only. Run `npm run dev` and open /edit.",
+        "The Cloneable editor is available in development only. Run `npm run dev` and open /edit.",
     },
     { status: 403 },
   );
