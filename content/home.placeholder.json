@@ -1,0 +1,178 @@
+{
+  "seo": {
+    "title": "Your headline goes here Replace this text with your own.",
+    "description": "A concise description of this page for search engines. Replace this text with your own. Replace this text with your own."
+  },
+  "nav": {
+    "brand": "Your Brand",
+    "links": [
+      {
+        "label": "Link text",
+        "href": "#how"
+      },
+      {
+        "label": "Link text",
+        "href": "#features"
+      },
+      {
+        "label": "Link text",
+        "href": "/edit"
+      }
+    ],
+    "action": {
+      "label": "Link text Replace this text with your own.",
+      "href": "#get-started"
+    }
+  },
+  "hero": {
+    "eyebrow": "Eyebrow Replace this text with your own.",
+    "title": "Your headline goes here Replace this text with your own.",
+    "subtitle": "One sentence explaining what this section is for. Replace this text with your own. Replace this text with your own. Replace this text with your own. Replace this text with your own.",
+    "primaryAction": {
+      "label": "Link text",
+      "href": "#get-started"
+    },
+    "secondaryAction": {
+      "label": "Link text Replace this text with your own.",
+      "href": "/edit"
+    },
+    "image": {
+      "src": "/images/placeholder.png",
+      "alt": "Placeholder image Replace this text with your own. Replace this text with your own.",
+      "width": 1200,
+      "height": 750
+    }
+  },
+  "logos": {
+    "caption": "Caption text Replace this text with your own.",
+    "items": [
+      {
+        "name": "Name Replace this text with your own."
+      },
+      {
+        "name": "Name Replace this text with your own."
+      },
+      {
+        "name": "Name"
+      },
+      {
+        "name": "Name Replace this text with your own."
+      },
+      {
+        "name": "Name Replace this text with your own."
+      },
+      {
+        "name": "Name Replace this text with your own."
+      }
+    ]
+  },
+  "features": {
+    "eyebrow": "Eyebrow Replace this text with your own.",
+    "title": "Your headline goes here",
+    "subtitle": "One sentence explaining what this section is for. Replace this text with your own. Replace this text with your own.",
+    "items": [
+      {
+        "icon": "layers",
+        "title": "Your headline goes here",
+        "body": "Describe this item in a sentence or two. Replace with your own copy. Replace this text with your own. Replace this text with your own."
+      },
+      {
+        "icon": "wand",
+        "title": "Your headline goes here",
+        "body": "Describe this item in a sentence or two. Replace with your own copy. Replace this text with your own. Replace this text with your own."
+      },
+      {
+        "icon": "palette",
+        "title": "Your headline goes here",
+        "body": "Describe this item in a sentence or two. Replace with your own copy. Replace this text with your own. Replace this text with your own."
+      },
+      {
+        "icon": "sparkles",
+        "title": "Your headline goes here",
+        "body": "Describe this item in a sentence or two. Replace with your own copy. Replace this text with your own."
+      },
+      {
+        "icon": "shield",
+        "title": "Your headline goes here",
+        "body": "Describe this item in a sentence or two. Replace with your own copy. Replace this text with your own. Replace this text with your own."
+      },
+      {
+        "icon": "workflow",
+        "title": "Your headline goes here",
+        "body": "Describe this item in a sentence or two. Replace with your own copy."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Your headline goes here",
+    "items": [
+      {
+        "quote": "A short customer quote goes here, in their own words. Replace this text with your own. Replace this text with your own.",
+        "name": "Name Replace this text with your own.",
+        "role": "Job title, Company"
+      },
+      {
+        "quote": "A short customer quote goes here, in their own words. Replace this text with your own. Replace this text with your own.",
+        "name": "Name Replace this text with your own.",
+        "role": "Job title, Company"
+      },
+      {
+        "quote": "A short customer quote goes here, in their own words. Replace this text with your own. Replace this text with your own.",
+        "name": "Name Replace this text with your own.",
+        "role": "Job title, Company"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Your headline goes here",
+    "subtitle": "One sentence explaining what this section is for. Replace this text with your own. Replace this text with your own.",
+    "action": {
+      "label": "Link text Replace this text with your own.",
+      "href": "#get-started"
+    }
+  },
+  "footer": {
+    "columns": [
+      {
+        "heading": "Section heading",
+        "links": [
+          {
+            "label": "Link text",
+            "href": "#how"
+          },
+          {
+            "label": "Link text",
+            "href": "#how"
+          },
+          {
+            "label": "Link text Replace this text with your own.",
+            "href": "#how"
+          }
+        ]
+      },
+      {
+        "heading": "Section heading",
+        "links": [
+          {
+            "label": "Link text",
+            "href": "/edit"
+          },
+          {
+            "label": "Link text",
+            "href": "#features"
+          }
+        ]
+      },
+      {
+        "heading": "Section heading",
+        "links": [
+          {
+            "label": "Link text Replace this text with your own.",
+            "href": "#"
+          }
+        ]
+      }
+    ],
+    "legal": "© Your Company. All rights reserved. Replace this text with your own. Replace this text with your own."
+  }
+}

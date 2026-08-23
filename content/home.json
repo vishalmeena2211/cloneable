@@ -1,0 +1,127 @@
+{
+  "seo": {
+    "title": "Reforge — clone any website into a customizable template",
+    "description": "Point an AI coding agent at a URL. Get back a Next.js codebase where every string, image, link, and colour is editable from a schema-driven UI."
+  },
+  "nav": {
+    "brand": "Reforge",
+    "links": [
+      { "label": "How it works", "href": "#how" },
+      { "label": "Features", "href": "#features" },
+      { "label": "Editor", "href": "/edit" }
+    ],
+    "action": { "label": "Use this template", "href": "#get-started" }
+  },
+  "hero": {
+    "eyebrow": "Clone → Templatize → Customize",
+    "title": "Every cloned site, editable by anyone",
+    "subtitle": "A pixel-perfect clone is a dead end if the copy is hard-coded in JSX. Reforge adds a content layer: your agent lifts every string, image, and link into typed JSON, then hands you a visual editor to rewrite it.",
+    "primaryAction": { "label": "Get started", "href": "#get-started" },
+    "secondaryAction": { "label": "Open the editor", "href": "/edit" },
+    "image": {
+      "src": "/images/hero-preview.png",
+      "alt": "The Reforge editor showing a content form beside a live page preview",
+      "width": 1200,
+      "height": 750
+    }
+  },
+  "logos": {
+    "caption": "One skill source, synced to every major coding agent",
+    "items": [
+      { "name": "Claude Code" },
+      { "name": "Codex CLI" },
+      { "name": "Cursor" },
+      { "name": "Copilot" },
+      { "name": "Gemini CLI" },
+      { "name": "Windsurf" }
+    ]
+  },
+  "features": {
+    "eyebrow": "What you get",
+    "title": "A template, not a snapshot",
+    "subtitle": "The clone is the starting point. Everything below is what turns it into something you can actually ship for a client.",
+    "items": [
+      {
+        "icon": "layers",
+        "title": "Typed content layer",
+        "body": "Every string, image, and link lands in content/*.json, validated by a zod schema. A missing field fails the build instead of rendering an empty page."
+      },
+      {
+        "icon": "wand",
+        "title": "Schema-driven editor",
+        "body": "The /edit route builds its form from the schema itself. Add a field to the schema and the editor grows a control for it — no second UI to maintain."
+      },
+      {
+        "icon": "palette",
+        "title": "Swappable theme",
+        "body": "Colours, radius, and font stacks live in theme.json and override the shadcn tokens at runtime. Rebrand without touching a component."
+      },
+      {
+        "icon": "sparkles",
+        "title": "One-prompt rebrand",
+        "body": "/customize-site rewrites the content and theme for a new brand, validating against the schema so the page cannot break."
+      },
+      {
+        "icon": "shield",
+        "title": "Placeholder variant",
+        "body": "Templatize emits a second content file with the source copy and imagery stripped out. Flip one flag to publish structure without borrowed content."
+      },
+      {
+        "icon": "workflow",
+        "title": "Agent-agnostic",
+        "body": "Three skills, one source of truth each, synced to thirteen coding agents by a single script."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Built for the handoff",
+    "items": [
+      {
+        "quote": "The clone was the easy part. Handing a client something they could edit without calling me was the whole job.",
+        "name": "The problem",
+        "role": "Why this fork exists"
+      },
+      {
+        "quote": "Hard-coded copy in JSX means every text change is a pull request. That does not survive contact with a real client.",
+        "name": "The constraint",
+        "role": "What upstream leaves open"
+      },
+      {
+        "quote": "Extract the structure, template the content, keep the pixels. Then the same clone serves ten different brands.",
+        "name": "The approach",
+        "role": "How Reforge answers it"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Clone a site, then make it yours",
+    "subtitle": "Run the three skills in order and you go from URL to editable template without writing a component by hand.",
+    "action": { "label": "Read the quick start", "href": "#get-started" }
+  },
+  "footer": {
+    "columns": [
+      {
+        "heading": "Skills",
+        "links": [
+          { "label": "/clone-website", "href": "#how" },
+          { "label": "/templatize", "href": "#how" },
+          { "label": "/customize-site", "href": "#how" }
+        ]
+      },
+      {
+        "heading": "Project",
+        "links": [
+          { "label": "Editor", "href": "/edit" },
+          { "label": "Content schema", "href": "#features" }
+        ]
+      },
+      {
+        "heading": "Upstream",
+        "links": [
+          { "label": "ai-website-cloner-template", "href": "https://github.com/JCodesMore/ai-website-cloner-template" }
+        ]
+      }
+    ],
+    "legal": "MIT licensed. Built on ai-website-cloner-template by JCodesMore. Clone only what you have the right to reproduce."
+  }
+}
