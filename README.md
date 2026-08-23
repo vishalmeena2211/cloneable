@@ -122,6 +122,26 @@ then run the three skills in order:
 **Prerequisites:** Node.js 24+, and an agent with browser automation (Chrome MCP, Playwright MCP,
 or similar) for the cloning step. Templatizing and customizing need no browser.
 
+## Deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvishalmeena2211%2Fcloneable)
+
+Zero configuration — it's a standard Next.js app. Vercel's default Node 24 matches the
+`engines` requirement, and `output: "standalone"` is skipped automatically on Vercel (it exists
+for the Dockerfile).
+
+Two things worth understanding about the deployed site:
+
+- **Content is baked in at build time.** Pages read their JSON during the build and prerender as
+  static, so editing content means committing the JSON and redeploying. That's the trade for
+  getting a fully static site with no database.
+- **`/edit` is disabled in production** and shows an "Editor unavailable" notice. This is
+  deliberate — the editor writes files into the repo, which a deployed instance can't do and
+  shouldn't be able to. Edit locally with `npm run dev`, commit, push. See the
+  [FAQ](#faq) if you want clients editing a live site.
+
+Self-hosting with Docker works too — `docker compose up app --build`.
+
 ## How it works
 
 ```mermaid
