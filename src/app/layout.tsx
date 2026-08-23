@@ -15,7 +15,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+/**
+ * Absolute base for OG/Twitter image URLs. Falls back to the Vercel
+ * production domain so a fork gets working social cards without configuring
+ * anything; set SITE_URL to pin a custom domain.
+ */
+const siteUrl =
+  process.env.SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Cloneable",
   description: "Clone any website into a customizable template",
 };
