@@ -9,8 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0] - 2026-08-23
 
-First release of Cloneable, forked from
-[ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) v0.4.0.
+First release of Cloneable.
 
 ### Added
 

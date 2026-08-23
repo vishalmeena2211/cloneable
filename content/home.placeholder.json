@@ -167,12 +167,16 @@
         "heading": "Section heading",
         "links": [
           {
-            "label": "Link text Replace this text with your own.",
+            "label": "Link text",
+            "href": "#"
+          },
+          {
+            "label": "Link text",
             "href": "#"
           }
         ]
       }
     ],
-    "legal": "© Your Company. All rights reserved. Replace this text with your own. Replace this text with your own."
+    "legal": "© Your Company. All rights reserved. Replace this text with your own."
   }
 }

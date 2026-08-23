@@ -1,23 +1,41 @@
 {
   "seo": {
-    "title": "Cloneable — clone any website into a customizable template",
+    "title": "Cloneable \u2014 clone any website into a customizable template",
     "description": "Point an AI coding agent at a URL. Get back a Next.js codebase where every string, image, link, and colour is editable from a schema-driven UI."
   },
   "nav": {
     "brand": "Cloneable",
     "links": [
-      { "label": "How it works", "href": "#how" },
-      { "label": "Features", "href": "#features" },
-      { "label": "Editor", "href": "/edit" }
+      {
+        "label": "How it works",
+        "href": "#how"
+      },
+      {
+        "label": "Features",
+        "href": "#features"
+      },
+      {
+        "label": "Editor",
+        "href": "/edit"
+      }
     ],
-    "action": { "label": "Use this template", "href": "#get-started" }
+    "action": {
+      "label": "Use this template",
+      "href": "#get-started"
+    }
   },
   "hero": {
-    "eyebrow": "Clone → Templatize → Customize",
+    "eyebrow": "Clone \u2192 Templatize \u2192 Customize",
     "title": "Every cloned site, editable by anyone",
     "subtitle": "A pixel-perfect clone is a dead end if the copy is hard-coded in JSX. Cloneable adds a content layer: your agent lifts every string, image, and link into typed JSON, then hands you a visual editor to rewrite it.",
-    "primaryAction": { "label": "Get started", "href": "#get-started" },
-    "secondaryAction": { "label": "Open the editor", "href": "/edit" },
+    "primaryAction": {
+      "label": "Get started",
+      "href": "#get-started"
+    },
+    "secondaryAction": {
+      "label": "Open the editor",
+      "href": "/edit"
+    },
     "image": {
       "src": "/images/hero-preview.png",
       "alt": "The Cloneable editor showing a content form beside a live page preview",
@@ -28,12 +46,24 @@
   "logos": {
     "caption": "One skill source, synced to every major coding agent",
     "items": [
-      { "name": "Claude Code" },
-      { "name": "Codex CLI" },
-      { "name": "Cursor" },
-      { "name": "Copilot" },
-      { "name": "Gemini CLI" },
-      { "name": "Windsurf" }
+      {
+        "name": "Claude Code"
+      },
+      {
+        "name": "Codex CLI"
+      },
+      {
+        "name": "Cursor"
+      },
+      {
+        "name": "Copilot"
+      },
+      {
+        "name": "Gemini CLI"
+      },
+      {
+        "name": "Windsurf"
+      }
     ]
   },
   "features": {
@@ -49,7 +79,7 @@
       {
         "icon": "wand",
         "title": "Schema-driven editor",
-        "body": "The /edit route builds its form from the schema itself. Add a field to the schema and the editor grows a control for it — no second UI to maintain."
+        "body": "The /edit route builds its form from the schema itself. Add a field to the schema and the editor grows a control for it \u2014 no second UI to maintain."
       },
       {
         "icon": "palette",
@@ -96,32 +126,57 @@
   "cta": {
     "title": "Clone a site, then make it yours",
     "subtitle": "Run the three skills in order and you go from URL to editable template without writing a component by hand.",
-    "action": { "label": "Read the quick start", "href": "#get-started" }
+    "action": {
+      "label": "Read the quick start",
+      "href": "#get-started"
+    }
   },
   "footer": {
     "columns": [
       {
         "heading": "Skills",
         "links": [
-          { "label": "/clone-website", "href": "#how" },
-          { "label": "/templatize", "href": "#how" },
-          { "label": "/customize-site", "href": "#how" }
+          {
+            "label": "/clone-website",
+            "href": "#how"
+          },
+          {
+            "label": "/templatize",
+            "href": "#how"
+          },
+          {
+            "label": "/customize-site",
+            "href": "#how"
+          }
         ]
       },
       {
         "heading": "Project",
         "links": [
-          { "label": "Editor", "href": "/edit" },
-          { "label": "Content schema", "href": "#features" }
+          {
+            "label": "Editor",
+            "href": "/edit"
+          },
+          {
+            "label": "Content schema",
+            "href": "#features"
+          }
         ]
       },
       {
-        "heading": "Upstream",
+        "heading": "Repository",
         "links": [
-          { "label": "ai-website-cloner-template", "href": "https://github.com/JCodesMore/ai-website-cloner-template" }
+          {
+            "label": "GitHub",
+            "href": "https://github.com/vishalmeena2211/cloneable"
+          },
+          {
+            "label": "MIT License",
+            "href": "https://github.com/vishalmeena2211/cloneable/blob/main/LICENSE"
+          }
         ]
       }
     ],
-    "legal": "MIT licensed. Built on ai-website-cloner-template by JCodesMore. Clone only what you have the right to reproduce."
+    "legal": "MIT licensed. Clone only what you have the right to reproduce."
   }
 }
