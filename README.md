@@ -19,7 +19,9 @@ edit in a visual editor.
 </p>
 
 <p>
-<img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" />
+<a href="https://github.com/vishalmeena2211/cloneable/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/vishalmeena2211/cloneable/ci.yml?branch=main&style=flat-square&label=CI" /></a>
+<a href="https://github.com/vishalmeena2211/cloneable/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/vishalmeena2211/cloneable?style=flat-square" /></a>
+<a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" /></a>
 <img alt="Next.js 16" src="https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js" />
 <img alt="React 19" src="https://img.shields.io/badge/React-19-149eca?style=flat-square&logo=react" />
 <img alt="TypeScript strict" src="https://img.shields.io/badge/TypeScript-strict-3178c6?style=flat-square&logo=typescript" />
@@ -343,13 +345,6 @@ and a copy.
 Issues and pull requests welcome. Please run `npm run check` before opening a PR, and if you
 touch `AGENTS.md` or any `.claude/skills/*/SKILL.md`, run the sync scripts and commit the
 generated output — CI verifies they're in sync.
-
-## Credits
-
-The cloning pipeline and the multi-platform skill sync come from
-[JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template)
-(MIT). Cloneable adds the content layer, the schema-driven editor, the placeholder generator, and
-the `/templatize` and `/customize-site` skills.
 
 ## License
 
