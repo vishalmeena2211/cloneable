@@ -204,7 +204,9 @@ fails to build.
 <img src="docs/assets/theme.png" alt="The theme editor showing colour tokens with swatches and a light/dark mode toggle" width="880" />
 
 `content/theme.json` holds the colour tokens, radius, and font stacks, and overrides the
-shadcn variables at runtime. The generated CSS uses `html:root` rather than `:root`, so it wins
+shadcn variables at runtime. `darkMode` there chooses how the dark palette
+activates — `class` (default, keeps a clone faithful to a light-only source), `media` (follow
+the visitor's OS), or `off`. The generated CSS uses `html:root` rather than `:root`, so it wins
 on specificity regardless of stylesheet order — no `!important`, no cascade roulette.
 
 ## The placeholder variant

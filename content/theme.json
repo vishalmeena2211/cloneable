@@ -1,4 +1,5 @@
 {
+  "darkMode": "media",
   "radius": "0.75rem",
   "fonts": {
     "sans": "\"Geist\", \"Geist Fallback\", ui-sans-serif, system-ui, sans-serif",

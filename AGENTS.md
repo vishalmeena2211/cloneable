@@ -57,6 +57,11 @@ This is what separates this template from a plain clone. Do not erode it.
 - **`/edit` is development-only.** It writes to the repo, so it is guarded by
   `src/lib/content/guard.ts` and must never be exposed in a deployed build.
 - **`*.placeholder.json` files are generated**, not hand-edited. Regenerate them from the editor.
+- **Dark mode is opt-in per theme.** `content/theme.json` carries
+  `darkMode: "class" | "media" | "off"`. A clone keeps the default `class`, so a light-only
+  source never flips dark on a visitor whose OS is dark — that would break the fidelity the
+  clone exists for. Use `media` only when the source itself follows the OS preference.
+  Tailwind's `dark:` utilities stay class-based either way, so style through the tokens.
 
 ## Design Principles
 - **Pixel-perfect emulation** — match the target's spacing, colors, typography exactly

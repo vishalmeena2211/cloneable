@@ -13,6 +13,22 @@ export const THEME_FILE = path.join(process.cwd(), "content", "theme.json");
  * without editing this schema.
  */
 export const ThemeSchema = z.object({
+  /**
+   * How the dark palette activates.
+   *
+   * - `class`  — only when `.dark` is on the root element. The default,
+   *              because a clone should look like its source: auto-switching a
+   *              light-only site to dark breaks the fidelity the clone exists
+   *              for.
+   * - `media`  — follows the visitor's OS setting. An explicit `.light` class
+   *              still wins, so a toggle can override it later.
+   * - `off`    — never; the dark tokens are kept but unused.
+   *
+   * Note that Tailwind's `dark:` utilities stay class-based regardless (see
+   * `@custom-variant dark` in globals.css). Style through the tokens, which is
+   * what every section component already does.
+   */
+  darkMode: z.enum(["class", "media", "off"]).default("class"),
   radius: z.string(),
   fonts: z.object({
     sans: z.string(),
@@ -48,8 +64,22 @@ export function themeToCss(theme: Theme): string {
     "font-mono": theme.fonts.mono,
     ...theme.colors.light,
   });
+  const light = `html:root{${base}}`;
   const dark = declarations(theme.colors.dark);
-  return `html:root{${base}}html:root.dark{${dark}}`;
+  const byClass = `html:root.dark{${dark}}`;
+
+  if (theme.darkMode === "off") return light;
+
+  if (theme.darkMode === "media") {
+    // `:not(.light)` leaves room for an explicit light override to beat the OS
+    // preference; the class rule follows so it still wins either way.
+    return (
+      `${light}@media (prefers-color-scheme: dark)` +
+      `{html:root:not(.light){${dark}}}${byClass}`
+    );
+  }
+
+  return `${light}${byClass}`;
 }
 
 export async function loadTheme(): Promise<Theme> {

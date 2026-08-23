@@ -5,7 +5,10 @@ import { Loader2, Plus, Save, Trash2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
+type DarkMode = "class" | "media" | "off";
+
 type Theme = {
+  darkMode: DarkMode;
   radius: string;
   fonts: { sans: string; heading: string; mono: string };
   colors: { light: Record<string, string>; dark: Record<string, string> };
@@ -147,6 +150,28 @@ export function ThemeEditor() {
       </div>
 
       <section className="mt-8 space-y-4 rounded-xl border border-border bg-card p-5">
+        <label className="block">
+          <span className="text-xs font-medium text-muted-foreground">Dark mode</span>
+          <select
+            value={theme.darkMode}
+            onChange={(event) =>
+              setTheme({ ...theme, darkMode: event.target.value as DarkMode })
+            }
+            className={cn(inputClass, "mt-1.5")}
+          >
+            <option value="class">class — only when .dark is set (keeps a clone faithful)</option>
+            <option value="media">media — follow the visitor&apos;s OS setting</option>
+            <option value="off">off — never use the dark palette</option>
+          </select>
+          <span className="mt-1 block text-xs text-muted-foreground">
+            {theme.darkMode === "off"
+              ? "The dark tokens below are kept but never rendered."
+              : theme.darkMode === "class"
+                ? "Nothing sets .dark by default, so the dark tokens stay inactive until you add a toggle."
+                : "Visitors whose OS is in dark mode get the dark tokens below."}
+          </span>
+        </label>
+
         <label className="block">
           <span className="text-xs font-medium text-muted-foreground">Corner radius</span>
           <input

@@ -70,7 +70,9 @@ lightness and chroma roughly constant, move the hue.
 Rules that keep the result usable rather than merely different:
 
 - **Change both maps.** Editing `light` and leaving `dark` as the old brand is a half-rebrand
-  that shows up the moment someone's OS is in dark mode.
+  that shows up the moment someone's OS is in dark mode. Check `darkMode` in `theme.json`
+  first: under `class` or `off` the dark tokens are inactive, so say so rather than implying
+  the rebrand covers a dark mode the site never shows.
 - **Foreground/background pairs must stay legible.** `primary-foreground` sits on `primary`,
   `muted-foreground` on `muted`, `card-foreground` on `card`. Aim for a contrast ratio of at
   least 4.5:1 for body text. When you set a vivid `primary`, its `primary-foreground` is almost
