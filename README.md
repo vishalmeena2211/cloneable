@@ -11,7 +11,7 @@ edit in a visual editor.
 </p>
 
 <p>
-<a href="https://cloneable-seven.vercel.app"><strong>Live demo</strong></a> ·
+<a href="https://cloneable.meenavishal.in"><strong>Live demo</strong></a> ·
 <a href="#quick-start">Quick start</a> ·
 <a href="#how-it-works">How it works</a> ·
 <a href="#the-content-layer">Content layer</a> ·
@@ -128,7 +128,7 @@ or similar) for the cloning step. Templatizing and customizing need no browser.
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvishalmeena2211%2Fcloneable)
 
 Zero configuration — it's a standard Next.js app. A live deployment of this repo runs at
-**[cloneable-seven.vercel.app](https://cloneable-seven.vercel.app)**. Vercel's default Node 24 matches the
+**[cloneable.meenavishal.in](https://cloneable.meenavishal.in)**. Vercel's default Node 24 matches the
 `engines` requirement, and `output: "standalone"` is skipped automatically on Vercel (it exists
 for the Dockerfile).
 
