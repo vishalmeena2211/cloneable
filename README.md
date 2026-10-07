@@ -1,118 +1,176 @@
 <div align="center">
 
-<h1>Cloneable</h1>
+<img src=".github/readme/banner.png" alt="cloneable: a website becomes a content folder plus a Next.js template" width="100%">
 
-<h3>Clone any website — then make every word of it editable</h3>
+<br>
 
-<p>
-Point an AI coding agent at a URL. Get back a Next.js codebase where the layout is a
-pixel-perfect clone and the content is <strong>typed, validated JSON</strong> that anyone can
-edit in a visual editor.
-</p>
+**Point an AI coding agent at a website. Get back a Next.js clone whose words, pictures and links live in typed JSON,<br>with a form at `/edit` so anyone can change them without touching a component.**
 
-<p>
-<a href="https://cloneable.meenavishal.in"><strong>Live demo</strong></a> ·
-<a href="#quick-start">Quick start</a> ·
-<a href="#how-it-works">How it works</a> ·
-<a href="#the-content-layer">Content layer</a> ·
-<a href="#the-editor">Editor</a> ·
-<a href="#faq">FAQ</a>
-</p>
+<br>
 
-<p>
-<a href="https://github.com/vishalmeena2211/cloneable/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/vishalmeena2211/cloneable/ci.yml?branch=main&style=flat-square&label=CI" /></a>
-<a href="https://github.com/vishalmeena2211/cloneable/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/vishalmeena2211/cloneable?style=flat-square" /></a>
-<a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" /></a>
-<img alt="Next.js 16" src="https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js" />
-<img alt="React 19" src="https://img.shields.io/badge/React-19-149eca?style=flat-square&logo=react" />
-<img alt="TypeScript strict" src="https://img.shields.io/badge/TypeScript-strict-3178c6?style=flat-square&logo=typescript" />
-<img alt="Tailwind CSS v4" src="https://img.shields.io/badge/Tailwind-v4-38bdf8?style=flat-square&logo=tailwindcss" />
-</p>
+[![Next.js 16](https://img.shields.io/badge/Next.js-16-0e141f?logo=nextdotjs&logoColor=white)](https://nextjs.org)
+[![React 19](https://img.shields.io/badge/React-19-0e141f?logo=react&logoColor=61dafb)](https://react.dev)
+[![TypeScript strict](https://img.shields.io/badge/TypeScript-strict-3060e6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4-3060e6?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![zod 4](https://img.shields.io/badge/zod-4,_schemas_to_forms-3060e6)](https://zod.dev)
+[![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-tokens_in_oklch-3060e6)](https://ui.shadcn.com)
+[![Node 24](https://img.shields.io/badge/Node.js-24_or_newer-0e141f?logo=nodedotjs&logoColor=white)](https://nodejs.org)
+<br>
+[![Three skills, thirteen agents](https://img.shields.io/badge/skills-3,_synced_to_13_coding_agents-3060e6)](#how-it-works)
+[![Editor is development only](https://img.shields.io/badge/editor-development_only,_writes_to_your_repo-0e141f)](#the-rules-it-keeps)
+[![CI](https://img.shields.io/github/actions/workflow/status/vishalmeena2211/cloneable/ci.yml?branch=main&label=CI)](https://github.com/vishalmeena2211/cloneable/actions/workflows/ci.yml)
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-0e141f)](#licence)
 
-<img src="docs/assets/editor.png" alt="The Cloneable editor: a schema-generated content form on the left, a live preview of the page on the right" width="880" />
+[What it does](#what-it-does) · [The rules it keeps](#the-rules-it-keeps) · [How far to trust it](#how-far-to-trust-it) · [How it works](#how-it-works) · [Run it yourself](#run-it-on-your-machine) · [Live demo](https://cloneable.meenavishal.in)
 
 </div>
 
----
+<br>
 
-## The problem
+<p align="center">
+  <img src=".github/readme/screens.png" alt="Three panels: a hero component before and after templatize, where the headline becomes content.hero.title and not one class name changes; the editor at /edit with the form on the left and the live page on the right; and the build error that names the field when JSON and schema disagree, beside the placeholder variant that keeps routes, enums and array lengths but drops the words" width="100%">
+</p>
 
-Cloning a website is close to solved. Give a capable agent browser access and it will reproduce
-a page almost exactly.
+## Why Cloneable
 
-What you get back is the problem:
+Cloning a website is close to solved. Give a capable agent a browser and it will reproduce a page almost exactly.
+
+What comes back is the problem. The copy is welded to the markup:
 
 ```tsx
 <h1 className="text-5xl font-semibold tracking-tight">Ship faster with Acme</h1>
 ```
 
-The copy is welded to the markup. Every text change is now a code change — so you can't hand it
-to a client, can't reuse the layout for a second brand, and can't let anyone who isn't a
-developer near it. The clone is a photograph when what you wanted was a mould.
+Every text change is now a code change. You cannot hand the site to a client, cannot reuse the layout for a second brand, and cannot let anyone who is not a developer near it. The clone is a photograph, when what you wanted was a mould.
 
-## The fix
-
-`/templatize` runs after the clone and separates the two halves of the page. **Structure** —
-layout, spacing, computed CSS, interaction behaviour — stays in the component. **Content** —
-words, images, links, repeat counts — moves out into typed JSON.
-
-<table>
-<tr><th>Before</th><th>After</th></tr>
-<tr><td>
-
-```tsx
-<h1 className="text-5xl font-semibold">
-  Ship faster with Acme
-</h1>
-```
-
-</td><td>
-
-```tsx
-<h1 className="text-5xl font-semibold">
-  {content.hero.title}
-</h1>
-```
-
-</td></tr>
-</table>
-
-Not one class name changed — the rendered pixels are identical. But the string now lives here:
+Cloneable adds a second step. After the clone, `/templatize` splits the page in two. **Structure** stays in the component: layout, spacing, computed CSS, how it moves. **Content** moves out into JSON: words, images, links, and how many cards there are. The pixels do not change. The string now lives here:
 
 ```jsonc
 // content/home.json
 { "hero": { "title": "Ship faster with Acme" } }
 ```
 
-described by this:
+and is described here:
 
 ```ts
 // src/content/pages/home.ts
 hero: z.object({ title: text("Headline") })
 ```
 
-and that schema is the *only* thing you write. It gives you validation on every load, a
-TypeScript type for the component prop, **and** a form control in the editor — no form code, no
-second source of truth.
+That schema is the only thing you write. It validates the JSON on every load, gives the component its TypeScript type, and draws the form control in the editor. There is no second source of truth.
 
-## Quick start
+## What it does
+
+| | |
+|---|---|
+| **Clones a page, pixel for pixel** | `/clone-website <url>` drives a real browser. It screenshots the page at 1440px and 390px, sweeps scroll, click and hover states, reads exact values with `getComputedStyle()`, writes one spec file per section, then hands each spec to a builder agent working in its own git worktree. |
+| **Lifts the words out** | `/templatize` moves every string, image, link and repeated block into a zod schema plus `content/<page>.json`, rewires the components to read from it, registers the page, and generates the placeholder variant. It screenshots before and after and treats any visual difference as a bug it introduced. |
+| **Rebrands from a brief** | `/customize-site "a dental clinic in Bhopal, warm and reassuring, teal palette"` rewrites the content and the theme for a new brand. It never edits a component. If the brief needs one, it reports that instead of quietly reaching in. |
+| **Fails loudly, with the field path** | Content is validated on load. A mismatch between schema and JSON stops the build and names the field, such as `hero.subtitle`, instead of rendering an empty page. |
+| **Edits in a form** | `/edit` draws its form from the schema. Arrays get add, remove and reorder. Enums get a dropdown. Images get a preview. The page is previewed beside the form, and Cmd+S saves. Writes pass the same validation as reads, so the editor cannot save a page that will not build. |
+| **Keeps the theme in one file** | `content/theme.json` holds the colour tokens, corner radius and font stacks, and overrides the shadcn variables at runtime. The theme editor shows each token with a swatch, in light and dark. |
+| **Ships without the source's words** | Every templatized page also gets `content/<page>.placeholder.json`: neutral copy and a placeholder image, with enum values, numbers, internal routes and array lengths kept, so the layout holds and the schema still passes. Set `content/config.json` to `{"variant": "placeholder"}` to serve it. |
+| **Works with thirteen agents** | The three skills are written once, in `.claude/skills/`, and one script copies them for Codex CLI, Cursor, Windsurf, GitHub Copilot, Gemini CLI, OpenCode, Cline, Roo Code, Continue, Kiro, Amazon Q and Augment Code. CI fails if a copy drifts from its source. |
+| **Handles more than one page** | `/clone-website` takes several URLs, keeps each source pathname as the route, and keeps every page's research, screenshots, components and assets in its own folder. |
+
+<p align="center">
+  <img src="docs/assets/editor.png" alt="The Cloneable editor: the Home page's form on the left, with SEO and Navigation sections open, and the live page on the right" width="100%">
+</p>
+
+## The rules it keeps
+
+- **Structure lives in components. Content lives in JSON.** Layout, spacing, computed CSS and interaction stay in the component. Words, images, links and repeat counts go in `content/`.
+- **Repeats are arrays, never `card1`, `card2`.** An array gets add, remove and reorder in the editor, which is what makes a template reusable. A component must render at length zero, because someone will delete an item.
+- **Variants are enums.** The editor offers a dropdown and a typo cannot reach the page.
+- **No `z.any()`, no free-form record.** If the editor cannot draw a control for it, it is not content. The one exception is `theme.colors`, an open record so a clone can add tokens shadcn does not ship.
+- **Props are derived, never re-declared.** A component types its prop as `Content["hero"]`, so the type cannot drift from the schema.
+- **CSS never becomes content.** A `padding` field in JSON is how a template turns into a worse stylesheet.
+- **Templatizing is a refactor, not a redesign.** The rendered pixels before and after must be identical, checked by screenshots at 1440px and 390px.
+- **`/customize-site` never edits a component.** That is what lets the same template be rebranded again tomorrow.
+- **The editor is development only.** It writes files into your repository. In a production build `/edit` shows "Editor unavailable" and the `/api/content` and `/api/theme` routes answer 403.
+- **Placeholder files are generated, not hand-edited.** Regenerate them from the editor.
+- **Dark mode is opt-in per theme.** `theme.json` carries `darkMode: "class" | "media" | "off"`. A clone keeps the default, `class`, so a light-only source never flips dark on a visitor whose OS is dark. The demo page uses `media` because it is this project's own page.
+- **Clone only what you have the right to reproduce.** Sites you own, sites you were hired to rebuild, and learning. Not phishing, not passing another company's design off as your own, and not redistributing the source's copy, photographs, logos or marks. The placeholder variant exists so the structure can ship without them.
+
+## How far to trust it
+
+> [!IMPORTANT]
+> **Cloneable is at version 0.1.0, released 23 August 2026.** The content layer, the editor, the theme and the placeholder generator run on this repository's own demo page, which is itself content-driven. The cloning skill is inherited from the upstream [ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) and depends on which agent you run it with and which browser tool that agent has. There are no automated tests yet: CI runs lint, the type check, the build, and a check that the generated skill copies match their sources.
+
+Two things to know about a deployed site. **Content is read at build time.** Pages prerender as static, so changing a word on the live site means editing the JSON, committing and redeploying. That is the price of a static site with no database. **The editor does not run in production.** To let clients edit a live site you would need authentication and a content store that is not the filesystem; `src/lib/content/store.ts` is the single seam to replace, and the schemas, the form and the components stay as they are.
+
+A live deployment of this repository runs at [cloneable.meenavishal.in](https://cloneable.meenavishal.in).
+
+## How it works
+
+```mermaid
+flowchart LR
+  URL(("A website"))
+  subgraph clone ["/clone-website, with a browser"]
+    SPEC["docs/research/<br/>one spec per section"]
+    COMP["src/components/sites/<br/>built by agents in worktrees"]
+  end
+  subgraph tpl ["/templatize"]
+    SCHEMA["src/content/pages/*.ts<br/>one zod schema per page, with ui hints"]
+    JSON["content/*.json<br/>the words, images, links"]
+    PH["content/*.placeholder.json<br/>generated, no source copy"]
+  end
+  subgraph edit ["Changing it"]
+    EDITOR["/edit<br/>form drawn from the schema"]
+    CUST["/customize-site<br/>new copy and theme from a brief"]
+    THEME["content/theme.json<br/>colours, radius, fonts"]
+  end
+  BUILD["next build<br/>validates, prerenders static pages"]
+  URL --> SPEC --> COMP --> SCHEMA
+  SCHEMA --> JSON --> PH
+  EDITOR -->|PUT /api/content| JSON
+  EDITOR -->|PUT /api/theme| THEME
+  CUST --> JSON
+  CUST --> THEME
+  JSON --> BUILD
+  THEME --> BUILD
+  BUILD --> SITE["Vercel or Docker"]
+```
+
+One schema per page, written once, does three jobs: it validates the JSON when the page loads, it types the component props, and it is turned into JSON Schema for the editor to draw its form from. `src/content/registry.ts` is the only list of pages, so it is the only place that can drift.
+
+| Part | What it is |
+|---|---|
+| [`.claude/skills/clone-website`](.claude/skills/clone-website/SKILL.md) | The cloning workflow: reconnaissance, foundation, a spec file per section, builder agents, assembly, visual QA, then a hand-off to `/templatize` |
+| [`.claude/skills/templatize`](.claude/skills/templatize/SKILL.md) | How literals are sorted into content or structure, the schema shape, the rewiring rules, and the parity checks |
+| [`.claude/skills/customize-site`](.claude/skills/customize-site/SKILL.md) | What a rebrand may change, how to keep a palette legible in oklch, and what to report instead of editing |
+| [`src/content/primitives.ts`](src/content/primitives.ts) | `text`, `longText`, `url`, `image`, `link`, `seo`: the field helpers that carry the `ui` hints the editor renders from |
+| [`src/lib/content/store.ts`](src/lib/content/store.ts) | Reads `content/config.json`, picks the variant, validates the JSON, and formats the error with field paths |
+| [`src/lib/content/placeholder.ts`](src/lib/content/placeholder.ts) | Walks schema and content together to strip copy and imagery while keeping structure |
+| [`src/lib/theme/theme.ts`](src/lib/theme/theme.ts) | The theme schema and the CSS it renders, on `html:root` so it outranks the defaults without `!important` |
+| [`src/lib/content/guard.ts`](src/lib/content/guard.ts) | `EDITOR_ENABLED`, false in production, checked by every write route and the editor layout |
+| [`scripts/sync-skills.mjs`](scripts/sync-skills.mjs), [`scripts/sync-agent-rules.sh`](scripts/sync-agent-rules.sh) | Copy the skills and `AGENTS.md` into every agent's own format |
+
+## Run it on your machine
+
+You need Node.js 24 or newer. To clone a real site you also need an agent with a browser tool, such as Chrome MCP or Playwright MCP. Templatizing and customizing need no browser.
+
+```bash
+git clone https://github.com/vishalmeena2211/cloneable.git && cd cloneable
+```
 
 ```bash
 npm install
+```
+
+```bash
 npm run dev
 ```
 
-Open [localhost:3000](http://localhost:3000) for the demo page and
-[localhost:3000/edit](http://localhost:3000/edit) to edit it. The demo page is itself
-content-driven, so the editor works before you've cloned anything.
+Then open http://localhost:3000 for the demo page and http://localhost:3000/edit to edit it. The demo page is content-driven, so the editor works before you have cloned anything.
 
-To clone a real site, start an agent with browser access:
+To clone a site, start an agent with browser access, for example:
 
 ```bash
 claude --chrome
 ```
 
-then run the three skills in order:
+and run the three skills in order:
 
 ```
 /clone-website https://example.com
@@ -120,256 +178,83 @@ then run the three skills in order:
 /customize-site "a dental clinic in Bhopal, warm and reassuring, teal palette"
 ```
 
-**Prerequisites:** Node.js 24+, and an agent with browser automation (Chrome MCP, Playwright MCP,
-or similar) for the cloning step. Templatizing and customizing need no browser.
-
-## Deploy
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvishalmeena2211%2Fcloneable)
-
-Zero configuration — it's a standard Next.js app. A live deployment of this repo runs at
-**[cloneable.meenavishal.in](https://cloneable.meenavishal.in)**. Vercel's default Node 24 matches the
-`engines` requirement, and `output: "standalone"` is skipped automatically on Vercel (it exists
-for the Dockerfile).
-
-Two things worth understanding about the deployed site:
-
-- **Content is baked in at build time.** Pages read their JSON during the build and prerender as
-  static, so editing content means committing the JSON and redeploying. That's the trade for
-  getting a fully static site with no database.
-- **`/edit` is disabled in production** and shows an "Editor unavailable" notice. This is
-  deliberate — the editor writes files into the repo, which a deployed instance can't do and
-  shouldn't be able to. Edit locally with `npm run dev`, commit, push. See the
-  [FAQ](#faq) if you want clients editing a live site.
-
-Self-hosting with Docker works too — `docker compose up app --build`.
-
-## How it works
-
-```mermaid
-flowchart LR
-    A["/clone-website<br/><sub>URL → components</sub>"] --> B["/templatize<br/><sub>components → schema + JSON</sub>"]
-    B --> C["/customize-site<br/><sub>brief → new brand</sub>"]
-    B --> D["/edit<br/><sub>visual editor</sub>"]
-```
-
-| Skill | What it does |
-| --- | --- |
-| **`/clone-website <url>`** | Browser-driven reverse engineering. Screenshots, an interaction sweep, exact `getComputedStyle()` extraction, a spec file per section, then parallel builder agents in git worktrees. |
-| **`/templatize [page]`** | Lifts every string, image, link, and repeated block into a zod schema plus a JSON file, rewires the components, registers the page, generates the placeholder variant. |
-| **`/customize-site <brief>`** | Rewrites content and theme for a new brand. Hard invariant: **never edits a component.** If the brief needs one, it reports instead of quietly reaching in. |
-
-Templatizing is a **refactor, not a redesign** — the skill screenshots the page before and after
-at 1440px and 390px and treats any visual difference as a bug it introduced.
-
-## The content layer
-
-Content is validated on load, so a mismatch between schema and JSON fails the build with exact
-field paths instead of silently rendering an empty page:
-
-```
-content/home.json does not match the "home" schema:
-  · hero.subtitle — Invalid input: expected string, received undefined
-  · features.items.0.icon — Invalid option: expected one of "sparkles"|"gauge"|"layers"…
-```
-
-The rules that keep it useful rather than becoming a second stylesheet:
-
-- **Repeats are arrays, never `card1`/`card2`.** Arrays get add/remove/reorder in the editor,
-  which is what makes a template actually reusable. Components must render at length zero,
-  because someone will delete an item.
-- **Variants are enums,** so the editor offers a dropdown and a typo can't reach the page.
-- **No `z.any()`, no free-form record.** If the editor can't render a control for it, it isn't
-  content.
-- **Props are derived, never re-declared** — `Content["hero"]`, so the type can't drift.
-- **CSS never becomes content.** A `padding` field in JSON is how a template turns into a worse
-  stylesheet.
-
-## The editor
-
-`/edit` generates its form from the schema via JSON Schema. Add a field to a zod schema and a
-control appears for it — arrays get add/remove/reorder, enums get dropdowns, `ui` hints pick
-the widget. Form on the left, live preview on the right, <kbd>⌘</kbd><kbd>S</kbd> to save.
-
-Writes go through the same validation as loads, so the editor **cannot** produce a page that
-fails to build.
-
-> [!IMPORTANT]
-> The editor is **development-only**. It writes files in your repo, so it's disabled in
-> production builds — a hosted, unauthenticated content-write endpoint is a defacement vector.
-> See the [FAQ](#faq) for what to do if you want clients editing a live site.
-
-### Theme
-
-<img src="docs/assets/theme.png" alt="The theme editor showing colour tokens with swatches and a light/dark mode toggle" width="880" />
-
-`content/theme.json` holds the colour tokens, radius, and font stacks, and overrides the
-shadcn variables at runtime. `darkMode` there chooses how the dark palette
-activates — `class` (default, keeps a clone faithful to a light-only source), `media` (follow
-the visitor's OS), or `off`. The generated CSS uses `html:root` rather than `:root`, so it wins
-on specificity regardless of stylesheet order — no `!important`, no cascade roulette.
-
-## The placeholder variant
-
-`/templatize` also emits `content/<page>.placeholder.json`, where the source site's copy and
-imagery are replaced with neutral stand-ins — while **enum values, numbers, internal routes, and
-array lengths are preserved**, so the layout is unchanged and the schema still validates.
-
-| | `original` | `placeholder` |
-| --- | --- | --- |
-| Headlines, body copy | from the source | neutral copy |
-| Images | from the source | `/images/placeholder.png` |
-| Internal routes (`/pricing`, `#faq`) | kept | kept |
-| External URLs | kept | `#` |
-| Enum values, array lengths | kept | kept |
-
-Flip `content/config.json` to `{"variant": "placeholder"}` and you're serving the structure
-without the source's words and pictures. It's schema-aware rather than a find-and-replace, which
-is why `icon: "layers"` survives instead of being turned into prose that fails validation.
-
-## Supported agents
-
-Skills are generated for **Claude Code** (recommended), Codex CLI, Cursor, Windsurf, GitHub
-Copilot, Gemini CLI, OpenCode, Cline, Roo Code, Continue, Kiro, Amazon Q, and Augment Code.
-
-One source of truth per skill, synced to all thirteen:
+Before a pull request, run the same checks CI runs:
 
 ```bash
-node scripts/sync-skills.mjs      # .claude/skills/*/SKILL.md  → 13 platforms
-bash scripts/sync-agent-rules.sh  # AGENTS.md                  → per-agent rule files
+npm run check
 ```
 
-CI fails if the generated files drift from their sources, so the copies can't silently rot.
-
-<details>
-<summary><strong>Project structure</strong></summary>
-
-```
-content/
-  config.json                 # Which variant is served: original | placeholder
-  theme.json                  # Colour tokens, radius, font stacks
-  home.json                   # Page content
-  home.placeholder.json       # Generated: source copy + imagery stripped
-src/
-  content/
-    primitives.ts             # text/longText/url/image/link/seo field helpers
-    pages/home.ts             # One zod schema per page
-    registry.ts               # The only list of pages
-  lib/
-    content/                  # Loader, validation, placeholder generator
-    theme/                    # Theme schema + CSS variable rendering
-  components/
-    sections/                 # Page sections — take content as props
-    editor/                   # Schema-driven form, theme editor
-  app/
-    edit/                     # Dev-only visual editor
-    api/                      # Dev-only content + theme write endpoints
-.claude/skills/               # Source of truth for all three skills
-docs/research/                # Clone inspection output, component specs
-```
-
-</details>
-
-<details>
-<summary><strong>Commands</strong></summary>
+**Deploying.** It is a standard Next.js app. [Deploy it on Vercel](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvishalmeena2211%2Fcloneable) with no configuration: `package.json` asks for Node 24, and `next.config.ts` skips `output: "standalone"` when it sees Vercel, since that setting exists for the Dockerfile. To self-host with Docker:
 
 ```bash
-npm run dev        # Dev server + editor
-npm run build      # Production build
-npm run lint       # ESLint
-npm run typecheck  # tsc --noEmit
-npm run check      # lint + typecheck + build
+docker compose up app --build
 ```
 
-</details>
+## Repository layout
 
-## FAQ
+| Folder | What is in it |
+|---|---|
+| [`content/`](content) | `config.json` (which variant is served), `theme.json`, and one JSON file per page plus its generated `.placeholder.json` |
+| [`src/content/`](src/content) | `primitives.ts`, one zod schema per page in `pages/`, and `registry.ts`, the only list of pages |
+| [`src/lib/`](src/lib) | The content loader and validator, the placeholder generator, the editor guard, and the theme renderer |
+| [`src/components/`](src/components) | `sections/` take content as props; `editor/` is the schema-driven form and the theme editor; `ui/` is shadcn |
+| [`src/app/`](src/app) | The routes: the demo page, `/edit`, and the development-only `/api/content` and `/api/theme` write endpoints |
+| [`.claude/skills/`](.claude/skills) | The source of truth for the three skills. Every other agent folder is generated from here |
+| [`docs/`](docs) | `research/` holds the inspection guide and, after a clone, the spec files; `assets/` holds the screenshots on this page |
+| [`scripts/`](scripts) | The two sync scripts |
 
-<details>
-<summary><strong>Why not just use a headless CMS?</strong></summary>
-
-You still have to model the content by hand for every site you clone, then wire each field up
-one at a time. Here the schema is written *from* the clone as part of templatizing, and the
-editor renders itself from that schema.
-
-If you outgrow JSON, `src/lib/content/store.ts` is the single seam — swap the loader for a CMS
-or database client and everything above it keeps working.
-
-</details>
-
-<details>
-<summary><strong>Can I deploy the editor so clients can edit the live site?</strong></summary>
-
-Not as-is, deliberately. The editor writes files into your repository, which a deployed instance
-has no business doing and no writable filesystem for.
-
-For a hosted setup you need two things: authentication, and a content store that isn't the
-filesystem. Replace the loader in `src/lib/content/store.ts` with a database or CMS client and
-put auth in front of the `/api/content` routes. The schemas, the form, and the components all
-stay exactly as they are.
-
-</details>
-
-<details>
-<summary><strong>Does it work on JavaScript-heavy sites?</strong></summary>
-
-Yes — extraction runs against the live DOM through a real browser, reading `getComputedStyle()`
-on rendered elements, so a client-rendered page is no harder than a static one. The interaction
-sweep exists precisely to capture behaviour a static scrape would miss: scroll-driven states,
-hover transitions, tab content, and smooth-scroll libraries.
-
-What it can't recover is server-side logic, real data, or anything behind auth.
-
-</details>
-
-<details>
-<summary><strong>Do I have to use Claude Code?</strong></summary>
-
-No — the same skills are generated for thirteen agents. Claude Code is recommended because the
-clone pipeline leans on parallel subagents in git worktrees, which not every agent does well.
-
-The cloning step needs browser automation. Templatizing and customizing don't, so any agent can
-do those.
-
-</details>
-
-<details>
-<summary><strong>What about multi-page sites?</strong></summary>
-
-`/clone-website` accepts multiple URLs and namespaces each one's research, screenshots,
-components, and assets by a hash of its origin and pathname, preserving the source pathname as
-the route. Templatize them one at a time — they all write to `src/content/registry.ts`, so
-parallel runs in one worktree will conflict.
-
-</details>
+New here? Start with [`AGENTS.md`](AGENTS.md): it is the project's rules in one page, and every agent reads it.
 
 ## Roadmap
 
-- [ ] Hosted editor: auth + a database-backed content store behind the same schemas
-- [ ] CMS adapters for the loader seam (Sanity, Payload)
+- [x] Content layer: zod schemas, JSON per page, validation on load with field paths
+- [x] Schema-driven editor at `/edit`, with live preview and Cmd+S
+- [x] Theme layer in `content/theme.json`, with `class`, `media` or `off` dark mode
+- [x] Placeholder variant generator, schema-aware
+- [x] `/templatize` and `/customize-site`, with `/clone-website` handing off to them
+- [x] One skill source synced to thirteen agents, checked in CI
+- [x] Deployed on Vercel at cloneable.meenavishal.in
+- [ ] Hosted editor: authentication plus a database-backed content store behind the same schemas
+- [ ] CMS adapters for the loader seam, such as Sanity and Payload
 - [ ] Whole-site crawl with shared-layout detection
-- [ ] Block library extraction — clone *n* sites into a reusable section library
-
-## Use responsibly
-
-This tool reproduces websites. That's legitimate for sites you own, sites you've been engaged to
-rebuild, and learning. It is not a licence to copy someone else's business.
-
-- **Don't** use it for phishing, impersonation, or passing off another company's design as your own
-- **Don't** redistribute the source's copy, photography, logos, or brand marks — that's what the
-  placeholder variant is for
-- **Do** check the target's terms of service before cloning
-
-Layout and structure are far weaker ground for a copyright claim than copy and imagery, so
-stripping the content isn't only courteous — it's the practical difference between a template
-and a copy.
+- [ ] Block library extraction: clone several sites into a reusable section library
+- [ ] Automated tests
 
 ## Contributing
 
-Issues and pull requests welcome. Please run `npm run check` before opening a PR, and if you
-touch `AGENTS.md` or any `.claude/skills/*/SKILL.md`, run the sync scripts and commit the
-generated output — CI verifies they're in sync.
+**If you clone sites:** the most useful thing you can do is run the three skills on a real page and open an issue with what the clone got wrong, what `/templatize` put in the wrong bucket, or what `/customize-site` asked for that it should not have.
 
-## License
+**If you write code:** read [`AGENTS.md`](AGENTS.md) and [`CONTRIBUTING.md`](CONTRIBUTING.md) first. Run `npm run check` before opening a pull request. If you touch `AGENTS.md` or any `.claude/skills/*/SKILL.md`, run `bash scripts/sync-agent-rules.sh` and `node scripts/sync-skills.mjs` and commit the generated files; CI checks that they match. Do not templatize several pages at once in one worktree: they all edit `src/content/registry.ts`.
 
-[MIT](LICENSE)
+Security reports go through GitHub's private [report a vulnerability](https://github.com/vishalmeena2211/cloneable/security/advisories/new) form, as [`SECURITY.md`](SECURITY.md) describes.
+
+## Credits
+
+Cloneable is a fork. The cloning skill, the agent sync scripts and the Next.js scaffold come from [ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) by JCodesMore. The content layer, the editor, the theme, the placeholder generator and the `/templatize` and `/customize-site` skills were added here.
+
+It is built on [Next.js](https://nextjs.org), [React](https://react.dev), [Tailwind CSS](https://tailwindcss.com), [shadcn/ui](https://ui.shadcn.com) with [Base UI](https://base-ui.com), [zod](https://zod.dev), [Lucide](https://lucide.dev) icons, and the [Geist](https://vercel.com/font) fonts.
+
+## Licence
+
+**[MIT](LICENSE).** The licence file carries two copyright lines: JCodesMore for the upstream template, and the Cloneable contributors for this fork. Use it, change it and share it, keeping both notices.
+
+Anything you clone with it keeps its owner's rights. The licence covers this code, not the sites it reproduces.
+
+## Words used here
+
+| Word | What it means |
+|---|---|
+| **Clone** | A Next.js rebuild of a page that matches the original's pixels, with the copy still inside the components |
+| **Templatize** | The refactor that moves the copy out of the components into JSON, without changing a pixel |
+| **Content layer** | The schemas in `src/content/pages/`, the JSON in `content/`, and the loader that validates one against the other |
+| **Schema** | The zod description of one page's content. It validates the JSON, types the props and draws the form |
+| **Variant** | Which JSON a page serves: `original`, the source's words, or `placeholder`, neutral stand-ins. Set in `content/config.json` |
+| **Skill** | A workflow an agent follows when you type its name, such as `/templatize`. Written once in `.claude/skills/`, copied for other agents |
+| **Spec file** | What `/clone-website` writes for each section before a builder touches it: exact CSS, states, assets, and the text verbatim |
+| **Worktree** | A second checkout of the repository on its own branch, so builder agents can work in parallel without overwriting each other |
+
+<br>
+
+<div align="center">
+<sub>Clone the structure, not the words. The clone is the starting point, not the deliverable.</sub>
+</div>
